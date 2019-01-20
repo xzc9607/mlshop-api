@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzc.mlshop.mapper.FocusMapper">
+    <resultMap id="result" type="com.xzc.mlshop.entity.Focus">
+        <result property="userid" column="userid" />
+        <result property="carid" column="carid" />
+
+
+    </resultMap>
+
+    <select id="getfocuslistbyuserid" resultMap="result">
+        SELECT * FROM focus where userid=#{userid}
+    </select>
+
+    <insert id="addfocuscar" parameterType="com.xzc.mlshop.entity.Focus" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO focus(userid,carid) VALUE (#{userid},#{carid})
+    </insert>
+
+
+</mapper>

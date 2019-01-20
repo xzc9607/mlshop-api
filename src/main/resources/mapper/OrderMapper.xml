@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+        <!DOCTYPE mapper PUBLIC
+                "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzc.mlshop.mapper.OrderMapper">
+<resultMap id="result" type="com.xzc.mlshop.entity.Order">
+    <result property="userid" column="userid" />
+    <result property="carid" column="carid" />
+
+</resultMap>
+
+<select id="getorderlistbyuserid" resultMap="result">
+        SELECT * FROM `order` where userid=#{userid}
+    </select>
+
+    <insert id="addorder" parameterType="com.xzc.mlshop.entity.Order" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO `order`(userid,carid) VALUE (#{userid},#{carid})
+    </insert>
+
+
+</mapper>

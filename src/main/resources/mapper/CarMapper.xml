@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzc.mlshop.mapper.CarMapper">
+    <resultMap id="result" type="com.xzc.mlshop.entity.Car">
+        <result property="id" column="id"/>
+
+    </resultMap>
+
+    <select id="getcarlist" resultMap="result">
+        SELECT * FROM car
+    </select>
+
+    <select id="findcarbyid" resultMap="result">
+        SELECT * FROM car WHERE id=#{id}
+    </select>
+
+    <select id="getnewcarlist" resultMap="result">
+        SELECT * FROM car ORDER BY id DESC LIMIT 0,20;
+    </select>
+
+
+</mapper>

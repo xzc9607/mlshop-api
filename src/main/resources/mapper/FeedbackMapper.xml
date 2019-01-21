@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzc.mlshop.mapper.FeedbackMapper">
+    <resultMap id="result" type="com.xzc.mlshop.entity.Feedback">
+        <result property="userid" column="userid" />
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="number" column="number"/>
+
+    </resultMap>
+
+    <select id="getlistbyid" resultMap="result">
+        SELECT * FROM feedback where userid=#{userid}
+    </select>
+    <insert id="addfeedback" parameterType="com.xzc.mlshop.entity.Feedback" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO feedback(userid,title,content,number) VALUE (#{userid},#{title},#{content},#{number})
+    </insert>
+
+
+</mapper>

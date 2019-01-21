@@ -23,6 +23,12 @@ public class FocusController {
         return focusMapper.getfocuslistbyuserid(userid);
     }
 
+    @RequestMapping(value="/getfocuslistlength",method = RequestMethod.GET)
+    @ResponseBody
+    public int getfocuslistlength(int userid){
+        return focusMapper.getfocuslistbyuserid(userid).size();
+    }
+
     @RequestMapping(value = "/addfocuscar", method = RequestMethod.POST)
     @ResponseBody
     public Msg addfocuscar(@RequestBody Focus focus){

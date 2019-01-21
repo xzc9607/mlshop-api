@@ -23,6 +23,12 @@ public class OrderController {
         return orderMapper.getorderlistbyuserid(userid);
     }
 
+    @RequestMapping(value="/getorderlistlength",method = RequestMethod.GET)
+    @ResponseBody
+    public int getorderlistlength(int userid){
+        return orderMapper.getorderlistbyuserid(userid).size();
+    }
+
     @RequestMapping(value = "/addorder", method = RequestMethod.POST)
     @ResponseBody
     public Msg addorder(@RequestBody Order order){
